@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">GROUP5_GPS</string>
+    <string name="server_client_id">YOUR_SERVER_CLIENT_ID</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="bttn_connect">Connéctez !</string>
+    <string name="Page_de_connexion"><u>Page De Connéxion :</u></string>
+    <string name="pseudo">Pseudo :</string>
+    <string name="password">Passowrd :</string>
+    <string name="inscrire_bttn">Inscrire !</string>
+    <string name="Page_d_Inscription"><u>Page D\'inscription</u></string>
+    <string name="pseudo_Inscription">Pseudo :</string>
+    <string name="password_Inscription">Passowrd :</string>
+    <string name="mdp_inscription_hint">Entrez votre password</string>
+    <string name="nickname_inscription_box">Entrez votre Pseudo</string>
+    <string name="mdp_inscription_confim">Confirme :</string>
+    <string name="mdp_inscription_box">Reconfirme Password</string>
+    <string name="nickname_cnt_box">Entrez votre Pseudo</string>
+</resources>
