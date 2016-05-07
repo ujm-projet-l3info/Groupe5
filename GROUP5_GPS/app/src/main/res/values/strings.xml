@@ -19,4 +19,11 @@
     <string name="quitter">Quitter</string>
     <string name="quitter_mainActivity">Quitter</string>
     <string name="back">Back</string>
+    <string name="finding_service">Finding local services</string>
+    <string name="btn_send">Send</string>
+    <string name="txt_hint">Type Message</string>
+    <string name="p2p_chat">P2P Chat</string>
+    <string name="enovoyez_tcht_box">Enovoyez</string>
+
+
 </resources>

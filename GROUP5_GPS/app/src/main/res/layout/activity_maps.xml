@@ -11,6 +11,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight=".75"
         android:id="@+id/linearLayout">
 
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,7 +19,7 @@
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="449dp"
+            android:layout_height="446dp"
             tools:context="com.example.neo.group5_gps.MapsActivity" />
     </LinearLayout>
 
@@ -50,6 +51,13 @@
                 android:layout_row="0"
                 android:layout_column="1"
                 android:onClick="quitter" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/p2p_chat"
+                android:id="@+id/p2p_chat"
+                android:onClick="goToP2P" />
 
 
         </GridLayout>

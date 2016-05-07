@@ -2,6 +2,7 @@ package com.example.neo.group5_gps;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -133,13 +134,13 @@ public class ParsorJasonTask extends AsyncTask<String,Void ,String> {
         if (result.equals("parser success")) {
             Toast.makeText(ctx, "jaison Success ", Toast.LENGTH_LONG).show();
             MainActivity.mainActivity_update(usersList);
-            //System.out.println(usersList.toString());
-            //MainActivity.usersList=usersList;
-            //Intent intent = new Intent("com.example.neo.group5_gps.MapsActivitiy");
-            //ctx.startActivity(intent);
+            System.out.println("$$$$$$$$$$$$$$$$$$$\n"+usersList.toString()+"\n$$$$$$$$$$$$\n$$$$$$$$$\n");
+            MainActivity.usersList=usersList;
+            Intent intent = new Intent("com.example.neo.group5_gps.MapsActivity");
+            ctx.startActivity(intent);
 
         }else{
-            if(result.equals("")){
+            if(!(result.equals("parser success"))){
                 Toast.makeText(ctx, "ERR :Parser failed to get DATA ", Toast.LENGTH_LONG).show();
             }
         }

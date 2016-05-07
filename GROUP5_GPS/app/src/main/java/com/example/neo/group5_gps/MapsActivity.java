@@ -1,6 +1,7 @@
 package com.example.neo.group5_gps;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -21,7 +22,7 @@ import java.util.HashMap;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     String login_name = MainActivity.pseudo;
     private GoogleMap mMap;
-    public static ArrayList<HashMap<String, String>> usersList = null;
+    public static ArrayList<HashMap<String, String>> usersList = MainActivity.usersList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        System.out.println("$$$$$$$$$$$$$$$$$$$\n"+usersList.toString()+"\n$$$$$$$$$$$$\n$$$$$$$$$\n");
+
     }
 
 
@@ -48,13 +51,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
+        int i=0;
         // Add a marker in Sydney and move the camera
           LatLng sydney = new LatLng(MainActivity.latitude, MainActivity.longitude);
 
+        for (i=0;i<usersList.size();i++){
+            String titre= usersList.get(i).get("pseudo");
+            Double longitude=Double.parseDouble(usersList.get(i).get("longitude"));
+            Double latitude=Double.parseDouble(usersList.get(i).get("latitude"));
+            LatLng pos = new LatLng(longitude,latitude);
 
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Je Suis ici : " + MainActivity.pseudo).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+            mMap.addMarker(new MarkerOptions().position(pos).title(titre));
+        }
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Moi : " + MainActivity.pseudo).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        googleMap.setMyLocationEnabled(true);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -65,13 +76,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        googleMap.setMyLocationEnabled(true);
+
     }
     public void showFrinds (View view){
-        String method ="getJeson";
-        ParsorJasonTask parsorJasonTask = new ParsorJasonTask(this);
-        parsorJasonTask.execute(method, login_name);
-        usersList=MainActivity.usersList;
+        //String method ="getJeson";
+        //ParsorJasonTask parsorJasonTask = new ParsorJasonTask(this);
+        //parsorJasonTask.execute(method, login_name);
+
 
         //Toast.makeText(MapsActivity.this, usersList.toString(), Toast.LENGTH_LONG).show();
     }
@@ -80,6 +91,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String method ="exit";
         ParsorJasonTask parsorJasonTask = new ParsorJasonTask(this);
         parsorJasonTask.execute(method, login_name);
+
+
+    }
+    public void goToP2P (View view){
+        Intent intent = new Intent("com.example.neo.group5_gps.WiFierviceDiscoveryAcStivity");
+        startActivity(intent);
 
 
     }
