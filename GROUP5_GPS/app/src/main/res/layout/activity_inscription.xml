@@ -111,17 +111,32 @@
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="50dp">
+                android:layout_marginTop="50dp"
+                android:onClick="goBack">
 
-                <Button
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/inscrire_bttn"
-                    android:id="@+id/submit_bt_inscrire"
-                    android:onClick="userRegister" />
+                    android:baselineAligned="false">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Back"
+                        android:id="@+id/button"
+                        android:onClick="goBack" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/inscrire_bttn"
+                        android:id="@+id/submit_bt_inscrire"
+                        android:onClick="userRegister" />
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>

@@ -11,22 +11,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
     public static Button button_connexion;
     public static Button button_inscrire;
-    /*public static int  etat,invisible;
+    public static int  etat,invisible;
     public static Double longitude,latitude;
     public static String pseudo;
-*/
-/*
-    public MainActivity(String pseudo,Double latitude,Double longitude,int etat,int invisible) {
-        this.pseudo = pseudo;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.etat = etat;
-        this.invisible = invisible;
+    public static ArrayList<HashMap<String, String>> usersList = null;
+
+
+    public static void mainActivity_update(String pseudo, Double latitude, Double longitude, int etat, int invisible) {
+        MainActivity.pseudo = pseudo;
+        MainActivity.latitude = latitude;
+        MainActivity.longitude = longitude;
+        MainActivity.etat = etat;
+        MainActivity.invisible = invisible;
+
     }
-*/
+    public static void mainActivity_update(ArrayList<HashMap<String, String>> usersList ) {
+        MainActivity.usersList=usersList;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,5 +120,21 @@ public class MainActivity extends AppCompatActivity {
         NetworkInfo activeNetworkInfo=connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo !=null;
     }
+
+
+    public void quitterMain (View v){
+
+        this.finish();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+
+        int pid = android.os.Process.myPid();//=====> use this if you want to kill your activity. But its not a good one to do.
+        android.os.Process.killProcess(pid);
+        System.exit(1);
+    }
+
+
 
 }

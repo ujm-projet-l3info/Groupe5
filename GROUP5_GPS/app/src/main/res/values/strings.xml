@@ -15,4 +15,8 @@
     <string name="mdp_inscription_confim">Confirme :</string>
     <string name="mdp_inscription_box">Reconfirme Password</string>
     <string name="nickname_cnt_box">Entrez votre Pseudo</string>
+    <string name="voir_les_amis">Voir les amis</string>
+    <string name="quitter">Quitter</string>
+    <string name="quitter_mainActivity">Quitter</string>
+    <string name="back">Back</string>
 </resources>

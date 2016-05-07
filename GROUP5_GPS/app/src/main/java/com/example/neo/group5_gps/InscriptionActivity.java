@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class InscriptionActivity extends AppCompatActivity {
     public static EditText nickname = null;
@@ -27,23 +28,30 @@ public class InscriptionActivity extends AppCompatActivity {
         login_name = nickname.getText().toString();
         login_pass = password.getText().toString();
         login_pass2 = password2.getText().toString();
-     /*   if(login_pass.equals(login_pass2)) {
+        if(login_pass.equals(login_pass2)) {
 
-        gps = new GPSTracker(InscriptionActivity.this);
-            if (gps.canGetLocation()) {
-                latitude = Double.toString(gps.getLatitude());
-                longitude = Double.toString(gps.getLongitude());
-                //System.out.println("$$$$ Longitude : "+longitude+" | Latitude : "+latitude+ " $$$$");
-            }
+            gps = new GPSTracker(InscriptionActivity.this);
+                if (gps.canGetLocation()) {
+                    latitude = Double.toString(gps.getLatitude());
+                    longitude = Double.toString(gps.getLongitude());
+                    //System.out.println("$$$$ Longitude : "+longitude+" | Latitude : "+latitude+ " $$$$");
+                }
             String method = "register";
 
             //System.out.println("**** Longitude : " + longitude + " | Latitude : " + latitude + " !!****");
-            Toast.makeText(getApplicationContext(), "Your Location is -\nLat: " + latitude + "\nLong: "
-                    + longitude, Toast.LENGTH_LONG).show();
-            BackgroundTask backgroundTask = new BackgroundTask(this);
-            backgroundTask.execute(method, login_name, login_pass, latitude,longitude );
+            //Toast.makeText(getApplicationContext(), "Your Location is -\nLat: " + latitude + "\nLong: "
+              //      + longitude, Toast.LENGTH_LONG).show();
+            //BackgroundTask backgroundTask = new BackgroundTask(this);
+              BackgroundTask backgroundTask = new BackgroundTask(this,login_name, Double.parseDouble(latitude), Double.parseDouble(longitude));
+              backgroundTask.execute(method, login_name, login_pass, latitude,longitude );
         }else{
             Toast.makeText(getApplicationContext(), "ERR : Votre mots passe ne sont pas IDENTEQUE !! ", Toast.LENGTH_LONG).show();
-        }*/
+        }
     }
+    void goBack(View v){
+        finish();
+
+        //onBackPressed();
+    }
+
 }
