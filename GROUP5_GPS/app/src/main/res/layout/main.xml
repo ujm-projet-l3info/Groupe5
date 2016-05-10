@@ -3,24 +3,37 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
+<<<<<<< HEAD
     android:textColor="#02ff85"
+=======
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
     android:background="#000000">
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/container_root"
         android:layout_width="fill_parent"
+<<<<<<< HEAD
         android:layout_height="fill_parent"
         android:layout_gravity="top"
         android:orientation="vertical"
         android:textColor="#02ff85"/>
+=======
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:orientation="vertical" />
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
 
     <TextView
         android:id="@+id/status_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_gravity="bottom"
         android:textColor="#0f9376">
+=======
+        android:layout_gravity="bottom" >
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
     </TextView>
 
 </FrameLayout>

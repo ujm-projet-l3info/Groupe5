@@ -24,8 +24,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     String login_name = MainActivity.pseudo;
     private GoogleMap mMap;
     public static ArrayList<HashMap<String, String>> usersList = MainActivity.usersList;
+<<<<<<< HEAD
     ArrayList<LatLng> markerPoints;
 
+=======
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
     @Override
 
 
@@ -39,12 +42,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //mMap = mapFragment.getMap();
 
         mapFragment.getMapAsync(this);
+<<<<<<< HEAD
         System.out.println("$$$$$$$$$$$$$$$$$$$\n" + usersList.toString() + "\n$$$$$$$$$$$$\n$$$$$$$$$\n");
         //mMap.setMyLocationEnabled(true);
 
 
 
 
+=======
+        System.out.println("$$$$$$$$$$$$$$$$$$$\n"+usersList.toString()+"\n$$$$$$$$$$$$\n$$$$$$$$$\n");
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
 
     }
 
@@ -63,6 +70,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mMap = googleMap;
         int i=0;
+<<<<<<< HEAD
         googleMap.setBuildingsEnabled(true);
         googleMap.setIndoorEnabled(true);
         googleMap.setMyLocationEnabled(true);
@@ -74,6 +82,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         uiSettings.setMapToolbarEnabled(true);
         uiSettings.setZoomControlsEnabled(true);
 
+=======
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
         // Add a marker in Sydney and move the camera
           LatLng moi = new LatLng(MainActivity.latitude, MainActivity.longitude);
 
@@ -85,8 +95,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             mMap.addMarker(new MarkerOptions().position(pos).title(titre));
         }
+<<<<<<< HEAD
         mMap.addMarker(new MarkerOptions().position(moi).title("Moi : " + MainActivity.pseudo).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(moi,18));
+=======
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Moi : " + MainActivity.pseudo).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        googleMap.setMyLocationEnabled(true);
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -100,6 +116,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
     public void showFrinds (View view){
+<<<<<<< HEAD
         Intent intent= new Intent("com.example.neo.group5_gps.TchatcheActivity");
         startActivity(intent);
         //Toast.makeText(MapsActivity.this, usersList.toString(), Toast.LENGTH_LONG).show();
@@ -109,6 +126,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String method ="exit";
         ParsorJasonTask parsorJasonTask = new ParsorJasonTask(this);
         parsorJasonTask.execute(method, login_name);
+=======
+        //String method ="getJeson";
+        //ParsorJasonTask parsorJasonTask = new ParsorJasonTask(this);
+        //parsorJasonTask.execute(method, login_name);
+
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
 
 
     }

@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="#000000"
     android:textColor="#02ff85"
     android:orientation="vertical" >
@@ -14,6 +15,16 @@
         android:textColor="#02ff85"
         android:background="#000000"
         android:transcriptMode="alwaysScroll" >
+=======
+    android:orientation="vertical" >
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dip"
+        android:transcriptMode="alwaysScroll"
+        android:background="#fffefe">
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
 
         <!-- Preview: listitem=@android:layout/simple_list_item_1 -->
 
@@ -32,8 +43,12 @@
             android:layout_weight="0.90"
             android:focusableInTouchMode="true"
             android:hint="@string/txt_hint"
+<<<<<<< HEAD
             android:visibility="visible"
             android:textColor="#2ecae2">
+=======
+            android:visibility="visible" >
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
         </EditText>
 
         <Button

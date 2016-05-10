@@ -30,14 +30,24 @@ public class WiFiChatFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+<<<<<<< HEAD
             Bundle savedInstanceState) {
         view = inflater.inflate(com.example.neo.group5_gps.R.layout.fragment_chat, container, false);
         chatLine = (TextView) view.findViewById(com.example.neo.group5_gps.R.id.txtChatLine);
+=======
+                             Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_chat, container, false);
+        chatLine = (TextView) view.findViewById(R.id.txtChatLine);
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
         listView = (ListView) view.findViewById(android.R.id.list);
         adapter = new ChatMessageAdapter(getActivity(), android.R.id.text1,
                 items);
         listView.setAdapter(adapter);
+<<<<<<< HEAD
         view.findViewById(com.example.neo.group5_gps.R.id.button1).setOnClickListener(
+=======
+        view.findViewById(R.id.button1).setOnClickListener(
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
                 new View.OnClickListener() {
 
                     @Override
@@ -45,7 +55,11 @@ public class WiFiChatFragment extends Fragment {
                         if (chatManager != null) {
                             chatManager.write(chatLine.getText().toString()
                                     .getBytes());
+<<<<<<< HEAD
                             pushMessage("Me: " + chatLine.getText().toString());
+=======
+                            pushMessage(MainActivity.pseudo+" : " + chatLine.getText().toString());
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
                             chatLine.setText("");
                             chatLine.clearFocus();
                         }
@@ -75,7 +89,11 @@ public class WiFiChatFragment extends Fragment {
         List<String> messages = null;
 
         public ChatMessageAdapter(Context context, int textViewResourceId,
+<<<<<<< HEAD
                 List<String> items) {
+=======
+                                  List<String> items) {
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
             super(context, textViewResourceId, items);
         }
 
@@ -94,12 +112,21 @@ public class WiFiChatFragment extends Fragment {
 
                 if (nameText != null) {
                     nameText.setText(message);
+<<<<<<< HEAD
                     if (message.startsWith(MainActivity.pseudo+" : ")) {
                         nameText.setTextAppearance(getActivity(),
                                 com.example.neo.group5_gps.R.style.normalText);
                     } else {
                         nameText.setTextAppearance(getActivity(),
                                 com.example.neo.group5_gps.R.style.boldText);
+=======
+                    if (message.startsWith("Me: ")) {
+                        nameText.setTextAppearance(getActivity(),
+                                R.style.normalText);
+                    } else {
+                        nameText.setTextAppearance(getActivity(),
+                                R.style.boldText);
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
                     }
                 }
             }

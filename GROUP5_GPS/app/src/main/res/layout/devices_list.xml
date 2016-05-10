@@ -4,29 +4,44 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="top"
+<<<<<<< HEAD
     android:gravity="top"
     android:textColor="#02ff85" >
+=======
+    android:gravity="top" >
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
 
 
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="match_parent"
         android:textColor="#02ff85" >
+=======
+        android:layout_height="match_parent" >
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
     </ListView>
 
     <LinearLayout
         android:id="@android:id/empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+<<<<<<< HEAD
         android:layout_marginTop="10dip"
         android:textColor="#02ff85">
+=======
+        android:layout_marginTop="10dip">
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
+<<<<<<< HEAD
             android:textColor="#02ff85"
+=======
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
             android:text="@string/finding_service" >
         </TextView>
 

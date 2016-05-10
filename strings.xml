@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GROUP5_GPS</string>
+    <string name="app_name">Yslam</string>
     <string name="server_client_id">YOUR_SERVER_CLIENT_ID</string>
     <string name="title_activity_maps">Map</string>
     <string name="bttn_connect">Connéctez !</string>
@@ -24,27 +24,7 @@
     <string name="txt_hint">Type Message</string>
     <string name="p2p_chat">P2P Chat</string>
     <string name="enovoyez_tcht_box">Enovoyez</string>
-<<<<<<< HEAD
-    <string name="tchache">tchache</string>
-    <string name="hello_world">Tap two locations in the map</string>
-    <string name="str_tv_distance_time">Distance</string>
-    <string name="amis">Amis</string>
-    <string name="enable_p2p_button">P2P On/Off</string>
-    <string name="discover_peers_button">Discover</string>
-    <string name="connect_peer_button">Connect</string>
-    <string name="disconnect_peer_button">Disconnect</string>
-    <string name="get_file_button">Launch Gallery</string>
-    <string name="empty"></string>
-    <string name="yes">yes</string>
-    <string name="no">no</string>
-    <string name="client_text">This device will act as a client. Click on Gallery button to pick a local(stored) file</string>
-    <string name="empty_message">No devices found. Turn on P2P and perform discovery from the Action Bar</string>
-    <string name="p2p_off_warning">Enable P2P from action bar button above or system settings</string>
-    <string name="group_owner_text">"Am I the Group Owner? "</string>
-    <string name="label_me">ME</string>
-    <string name="label_peers">PEERS</string>
-=======
+    <string name="title_activity_debut_app">DebutApp</string>
 
 
->>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
 </resources>

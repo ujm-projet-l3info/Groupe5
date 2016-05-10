@@ -24,11 +24,17 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+<<<<<<< HEAD
 
 import com.example.neo.group5_gps.WiFiChatFragment.MessageTarget;
 import com.example.neo.group5_gps.WiFiDirectServicesList.DeviceClickListener;
 import com.example.neo.group5_gps.WiFiDirectServicesList.WiFiDevicesAdapter;
 
+=======
+import  com.example.neo.group5_gps.WiFiChatFragment.MessageTarget;
+import  com.example.neo.group5_gps.WiFiDirectServicesList.DeviceClickListener;
+import  com.example.neo.group5_gps.WiFiDirectServicesList.WiFiDevicesAdapter;
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,12 +58,20 @@ public class WiFiServiceDiscoveryActivity extends Activity implements
 
 
 
+<<<<<<< HEAD
     public static final String TAG = "wifiGROUP5";
+=======
+    public static final String TAG ="wifidirectdemo";
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
 
 
     // TXT RECORD properties
     public static final String TXTRECORD_PROP_AVAILABLE = "available";
+<<<<<<< HEAD
     public static final String SERVICE_INSTANCE = "_wifigroup5";
+=======
+    public static final String SERVICE_INSTANCE = "_wifidemotest";
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
     public static final String SERVICE_REG_TYPE = "_presence._tcp";
 
     public static final int MESSAGE_READ = 0x400 + 1;
@@ -89,8 +103,13 @@ public class WiFiServiceDiscoveryActivity extends Activity implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< HEAD
         setContentView(com.example.neo.group5_gps.R.layout.main);
         statusTxtView = (TextView) findViewById(com.example.neo.group5_gps.R.id.status_text);
+=======
+        setContentView(R.layout.main);
+        statusTxtView = (TextView) findViewById(R.id.status_text);
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
 
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION);
@@ -105,7 +124,11 @@ public class WiFiServiceDiscoveryActivity extends Activity implements
 
         servicesList = new WiFiDirectServicesList();
         getFragmentManager().beginTransaction()
+<<<<<<< HEAD
                 .add(com.example.neo.group5_gps.R.id.container_root, servicesList, "services").commit();
+=======
+                .add(R.id.container_root, servicesList, "services").commit();
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
 
     }
 
@@ -175,7 +198,11 @@ public class WiFiServiceDiscoveryActivity extends Activity implements
 
                     @Override
                     public void onDnsSdServiceAvailable(String instanceName,
+<<<<<<< HEAD
                             String registrationType, WifiP2pDevice srcDevice) {
+=======
+                                                        String registrationType, WifiP2pDevice srcDevice) {
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
 
                         // A service has been discovered. Is this our app?
 
@@ -340,7 +367,11 @@ public class WiFiServiceDiscoveryActivity extends Activity implements
         }
         chatFragment = new WiFiChatFragment();
         getFragmentManager().beginTransaction()
+<<<<<<< HEAD
                 .replace(com.example.neo.group5_gps.R.id.container_root, chatFragment).commit();
+=======
+                .replace(R.id.container_root, chatFragment).commit();
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
         statusTxtView.setVisibility(View.GONE);
     }
 

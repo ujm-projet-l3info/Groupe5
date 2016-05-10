@@ -29,8 +29,13 @@ public class WiFiDirectServicesList extends ListFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+<<<<<<< HEAD
             Bundle savedInstanceState) {
         return inflater.inflate(com.example.neo.group5_gps.R.layout.devices_list, container, false);
+=======
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.devices_list, container, false);
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
     }
 
     @Override
@@ -56,7 +61,11 @@ public class WiFiDirectServicesList extends ListFragment {
         private List<WiFiP2pService> items;
 
         public WiFiDevicesAdapter(Context context, int resource,
+<<<<<<< HEAD
                 int textViewResourceId, List<WiFiP2pService> items) {
+=======
+                                  int textViewResourceId, List<WiFiP2pService> items) {
+>>>>>>> 734935ffd545e777ca9d89f09be95acb359d19ff
             super(context, resource, textViewResourceId, items);
             this.items = items;
         }
