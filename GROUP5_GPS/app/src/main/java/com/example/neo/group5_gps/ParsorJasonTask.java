@@ -2,6 +2,7 @@ package com.example.neo.group5_gps;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -41,12 +42,12 @@ public class ParsorJasonTask extends AsyncTask<String,Void ,String> {
     ParsorJasonTask(Context ctx){
         this.ctx =ctx;
     }
-    @Override
+    /*@Override
     protected void onPreExecute() {
         super.onPreExecute();
         pd = ProgressDialog.show(ctx, "Parsing Information",
                 "Please wait while we are parsing Data...");
-    }
+    }*/
     @Override
     protected String doInBackground(String... params) {
         String json_url ="http://109.29.198.199/all.php";
@@ -87,11 +88,47 @@ public class ParsorJasonTask extends AsyncTask<String,Void ,String> {
                 e.printStackTrace();
             }
 
-        }
-        else if(method.equals("exit")){
+        }else if(method.equals("exit"))
+            {
+                String login_name = params[1];
+                try {
+                    URL url = new URL(logout_url);
+                    HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setDoInput(true);
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
+                    String data = URLEncoder.encode("login_name","UTF-8")+"="+URLEncoder.encode(login_name,"UTF-8");
+                    bufferedWriter.write(data);
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                    String response = "";
+                    String line;
+                    while ((line = bufferedReader.readLine())!=null)
+                        {
+                            response +=line;
+                        }
+
+                    bufferedReader.close();
+                    inputStream.close();
+                    httpURLConnection.disconnect();
+                    return ("logout success");
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        if(method.equals("getupdate")){
             String login_name = params[1];
             try {
-                URL url = new URL(logout_url);
+                URL url = new URL(json_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
@@ -115,7 +152,8 @@ public class ParsorJasonTask extends AsyncTask<String,Void ,String> {
                 bufferedReader.close();
                 inputStream.close();
                 httpURLConnection.disconnect();
-                return ("logout success");
+                usersList = ParseJSON(response);
+                return ("update success");
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -133,24 +171,49 @@ public class ParsorJasonTask extends AsyncTask<String,Void ,String> {
         if (result.equals("parser success")) {
             Toast.makeText(ctx, "jaison Success ", Toast.LENGTH_LONG).show();
             MainActivity.mainActivity_update(usersList);
-            //System.out.println(usersList.toString());
-            //MainActivity.usersList=usersList;
-            //Intent intent = new Intent("com.example.neo.group5_gps.MapsActivitiy");
-            //ctx.startActivity(intent);
+            System.out.println("$$$$$$$$$$$$$$$$$$$\n"+usersList.toString()+"\n$$$$$$$$$$$$\n$$$$$$$$$\n");
+            MainActivity.usersList=usersList;
+            Intent intent = new Intent("com.example.neo.group5_gps.MapsActivity");
+            ctx.startActivity(intent);
 
         }else{
-            if(result.equals("")){
+            if(!(result.equals("parser success"))){
                 Toast.makeText(ctx, "ERR :Parser failed to get DATA ", Toast.LENGTH_LONG).show();
             }
         }
         if (result.equals("logout success")) {
+
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            int pid = android.os.Process.myPid();//=====> use this if you want to kill your activity. But its not a good one to do.
+            android.os.Process.killProcess(pid);
+
             Toast.makeText(ctx, "LOGOUT Success !!", Toast.LENGTH_LONG).show();
-            System.exit(0);
+
+            //Intent intent = new Intent("com.example.neo.group5_gps.MainActivity");
+            ctx.startActivity(intent);
+            System.exit(-1);
         }else{
             if(result.equals("")){
                 Toast.makeText(ctx, "ERR :Parser failed to Logout ", Toast.LENGTH_LONG).show();
             }
         }
+        if (result.equals("update success")) {
+            Toast.makeText(ctx, "update success ", Toast.LENGTH_LONG).show();
+            MainActivity.mainActivity_update(usersList);
+            System.out.println("$$$$$$$$$$$$$$$$$$$\n"+usersList.toString()+"\n$$$$$$$$$$$$\n$$$$$$$$$\n");
+            MainActivity.usersList=usersList;
+            Intent intent = new Intent("com.example.neo.group5_gps.FriendsList");
+            ctx.startActivity(intent);
+
+        }else{
+            if(!(result.equals("update failed"))){
+                Toast.makeText(ctx, "ERR :Parser failed to get DATA ", Toast.LENGTH_LONG).show();
+                MainActivity.usersList=usersList;
+            }
+        }
+
     }
 
     private ArrayList<HashMap<String, String>> ParseJSON(String json) {

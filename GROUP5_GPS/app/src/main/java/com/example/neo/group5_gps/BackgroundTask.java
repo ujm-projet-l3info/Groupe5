@@ -152,8 +152,9 @@ public class BackgroundTask extends AsyncTask <String,Void ,String>  {
         if (result.equals("Reg Success")) {
             MainActivity.mainActivity_update(login_name, latitude, longitude, 1, 1);
             Toast.makeText(ctx, "Registration Success", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent("com.example.neo.group5_gps.MapsActivity");
-            ctx.startActivity(intent);
+            String method ="getJeson";
+            ParsorJasonTask parsorJasonTask = new ParsorJasonTask(ctx);
+            parsorJasonTask.execute(method, login_name);
         } else {
             if (result.equals("Reg failure")) {
                 Toast.makeText(ctx, "ERR : Registration failed Please TRY AGAIN \n Please chose another " + login_name + " \n", Toast.LENGTH_LONG).show();
@@ -164,12 +165,17 @@ public class BackgroundTask extends AsyncTask <String,Void ,String>  {
         if (result.equals("Login success")) {
             MainActivity.mainActivity_update(login_name, latitude, longitude, 1, 1);
             Toast.makeText(ctx, result, Toast.LENGTH_LONG).show();
-            Intent intent = new Intent("com.example.neo.group5_gps.MapsActivity");
-            ctx.startActivity(intent);
+            String method ="getJeson";
+            ParsorJasonTask parsorJasonTask = new ParsorJasonTask(ctx);
+            parsorJasonTask.execute(method, login_name);
+
+            /// /Intent intent = new Intent("com.example.neo.group5_gps.MapsActivity");
+            //ctx.startActivity(intent);
         } else {
 
             if (result.equals("Login failure")) {
                 Toast.makeText(ctx, "ERR :Login Failed Please TRY AGAIN ", Toast.LENGTH_LONG).show();
+
                 Intent intent = new Intent("com.example.neo.group5_gps.ConnexionActivity");
                 ctx.startActivity(intent);
             }
